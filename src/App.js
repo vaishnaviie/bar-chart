@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Bar } from "react-chartjs-2";
+import Chart from "chart.js/auto";
 
 function App() {
+  const obj = {
+    labels: [2015, 2016, 2017, 2018, 2019, 2020],
+    datasets: [
+      {
+        label: "Profit chartBar",
+        data: [1000, 500, 300, 800, 10, 900],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const obj2 = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Bar data={obj} options={obj2} />
     </div>
   );
 }
